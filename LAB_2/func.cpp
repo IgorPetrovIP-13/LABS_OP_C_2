@@ -1,4 +1,4 @@
-#include "Header.h"
+#include "func.h"
 
 string enter_mode() {
     string file_mode;
@@ -49,8 +49,10 @@ void creating_second_file(string first_path, string second_path) {
         ofstream second_file(second_path, ios::binary);
         if (second_file.is_open()) {
             Car car;
-            int current_month = 5;
-            int current_year = 2022;
+            time_t t = time(0);
+            tm* now = localtime(&t);
+            const int current_year = now->tm_year + 1900;
+            const int current_month = now->tm_mon + 1;
             while (first_file.read((char*)&car, sizeof(Car))) {
                 if (current_month == stoi(split(car.sell_date, '.')[1]) and current_year == stoi(split(car.sell_date, '.')[2])) {
                     second_file.write((char*)&car, sizeof(Car));
