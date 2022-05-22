@@ -3,6 +3,7 @@
 #include <fstream>
 #include <ctime>
 #include <vector>
+#pragma warning(disable : 4996)
 
 using namespace std;
 
