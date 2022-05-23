@@ -9,4 +9,5 @@ int main() {
 	cout << "Enter the date in format DD-MM-YYYY: "; cin >> date;
 	cout << "\nOutdated products:\n\n";
 	display_outdated_products(arr, size, date);
+	delete [] arr;
 }
