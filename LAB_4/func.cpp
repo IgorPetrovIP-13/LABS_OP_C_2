@@ -9,7 +9,6 @@ Numeral_16::Numeral_16(int dec_num) {
         else temp += (char)(temp_int + 55);
         dec_num /= 16;
     }
-    int length = temp.length();
     for (int i = temp.length() - 1; i >= 0; i--) {
         num_16 += temp[i];
     }
@@ -24,22 +23,22 @@ string Numeral_16::get_num_16() {
 }
 
 Numeral_16 Numeral_16::operator ++() {
-    int dec_num = stoi(num_16, nullptr, 16);
+    int dec_num = stoi(num_16, 0, 16);
     this->num_16 = Numeral_16(++dec_num).num_16;
     return *this;
 }
 
 const Numeral_16 Numeral_16::operator +(const Numeral_16& obj) {
-    return Numeral_16(stoi(num_16, nullptr, 16) + stoi(obj.num_16, nullptr, 16)).num_16;
+    return Numeral_16(stoi(num_16, 0, 16) + stoi(obj.num_16, 0, 16)).num_16;
 }
 
 const Numeral_16 Numeral_16::operator +=(const string& hex_num) {
-    num_16 = Numeral_16(stoi(num_16, nullptr, 16) + stoi(hex_num, nullptr, 16)).num_16;
+    num_16 = Numeral_16(stoi(num_16, 0, 16) + stoi(hex_num, 0, 16)).num_16;
     return *this;
 }
 
 const Numeral_16 Numeral_16::operator +=(int dec_num) {
-    num_16 = Numeral_16(stoi(num_16, nullptr, 16) + dec_num).num_16;
+    num_16 = Numeral_16(stoi(num_16, 0, 16) + dec_num).num_16;
     return *this;
 }
 
